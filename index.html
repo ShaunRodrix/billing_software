@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" class="mode-dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MART — Billing</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="topstrip">
+    <div class="brand">MART</div>
+    <div class="tabs" id="tabs"></div>
+    <div class="clock" id="clock">--:--</div>
+  </header>
+
+  <main class="main">
+    <section class="grid" id="grid" aria-label="Products"></section>
+
+    <aside class="bill">
+      <div class="bill-head">
+        <div class="bill-no" id="bill-no">Bill #0000</div>
+        <button class="paychip" id="paychip" title="F6 — cycle payment method">CASH</button>
+      </div>
+
+      <div class="lines" id="lines"></div>
+
+      <div class="status" id="status"></div>
+
+      <div class="totals">
+        <div class="trow"><span>Subtotal</span><b id="t-sub">₹0.00</b></div>
+        <div class="trow"><span>GST</span><b id="t-gst">₹0.00</b></div>
+        <div class="trow grand"><span>Total</span><b id="t-grand">₹0.00</b></div>
+      </div>
+
+      <button class="paybtn" id="paybtn">
+        <span>PAY &amp; PRINT <kbd>F2</kbd></span>
+        <span id="paybtn-amount">₹0.00</span>
+      </button>
+    </aside>
+  </main>
+
+  <footer class="legend">
+    <span class="key"><kbd>F1</kbd> Search</span>
+    <span class="key"><kbd>F2</kbd> Pay &amp; print</span>
+    <span class="key"><kbd>F3</kbd> Qty</span>
+    <span class="key"><kbd>F4</kbd>/<kbd>Del</kbd> Delete line</span>
+    <span class="key"><kbd>F6</kbd> Payment</span>
+    <span class="key"><kbd>F8</kbd> Void</span>
+    <span class="key"><kbd>F9</kbd> New bill</span>
+    <span class="key"><kbd>F10</kbd> Help</span>
+    <span class="key"><kbd>←→</kbd> Bill</span>
+    <span class="key"><kbd>↑↓</kbd> Line</span>
+    <span class="key"><kbd>+/−</kbd> Qty</span>
+    <span class="hint"><kbd>L</kbd> light/dark</span>
+  </footer>
+
+  <!-- Search overlay -->
+  <div class="overlay hidden" id="search">
+    <div class="search-panel">
+      <div class="search-input-row">
+        <input id="search-input" type="text" autocomplete="off" spellcheck="false"
+               placeholder="Type initials…">
+        <span class="search-esc">ESC</span>
+      </div>
+      <div class="search-results" id="search-results"></div>
+      <div class="search-count" id="search-count"></div>
+    </div>
+  </div>
+
+  <!-- Help overlay -->
+  <div class="overlay hidden" id="help">
+    <div class="help-panel">
+      <h2>Keyboard</h2>
+      <div class="help-grid">
+        <span><kbd>F1</kbd> / <kbd>/</kbd> / any letter</span><span>Search &amp; add</span>
+        <span><kbd>↑↓</kbd> <kbd>Enter</kbd> <kbd>Esc</kbd></span><span>Move · add · close (in search)</span>
+        <span><kbd>←</kbd> <kbd>→</kbd></span><span>Switch bill</span>
+        <span><kbd>↑</kbd> <kbd>↓</kbd></span><span>Select bill line</span>
+        <span><kbd>F2</kbd></span><span>Pay &amp; print (58 mm)</span>
+        <span><kbd>F3</kbd></span><span>Edit qty of selected line</span>
+        <span><kbd>F4</kbd> / <kbd>Del</kbd></span><span>Delete selected line</span>
+        <span><kbd>+</kbd> <kbd>−</kbd></span><span>Qty ±1</span>
+        <span><kbd>F6</kbd></span><span>Cycle CASH → CARD → UPI</span>
+        <span><kbd>F8</kbd> ×2</span><span>Void bill (press twice)</span>
+        <span><kbd>F9</kbd></span><span>New bill</span>
+      </div>
+      <p class="help-note">Press <kbd>Esc</kbd> to close</p>
+    </div>
+  </div>
+
+  <!-- 58mm print receipt (visible only in print) -->
+  <div id="print-area" aria-hidden="true"></div>
+
+  <script src="products.js"></script>
+  <script src="bills.js"></script>
+  <script src="print.js"></script>
+  <script src="ui.js"></script>
+</body>
+</html>

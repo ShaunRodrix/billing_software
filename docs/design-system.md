@@ -2,22 +2,37 @@
 
 Living file. Every decision Shaun makes gets logged here immediately; all work follows it.
 
-## Palette — Amber, Dark mode (approved 2026-10-15)
+## Palette — Black & White mono (approved 2026-10-15, supersedes Amber)
 
-Value-by-value from `experiments/palette-comparison.html` (his tuned reference wins — never substitute).
+Monochrome: the accent IS the inversion. Active/selected/action elements flip to solid
+blocks — white-on-dark in dark mode, black-on-light in light mode. No color accent.
+`--ok` green survives only for genuine success states (paid, printed).
+
+### Dark (default)
 
 | Token | Value | Use |
 |---|---|---|
-| `--bg` | `#121316` | Page background (flat, solid — never gradient) |
-| `--surface` | `#1A1C21` | Cards, panels, strips |
-| `--border` | `#2A2D34` | Card/panel borders, dividers |
-| `--text` | `#F2F0EB` | Primary text (warm white) |
-| `--dim` | `#9B968B` | Secondary text, labels |
-| `--accent` | `#FFB224` | Active bill tab, selected line, total, PAY button, flash-on-add |
-| `--accent-text` | `#1A1305` | Text/icons on accent |
-| `--ok` | `#34D399` | Success states |
+| `--bg` | `#0B0B0C` | Page background (flat, solid — never gradient, never pure #000) |
+| `--surface` | `#151517` | Cards, panels, strips |
+| `--border` | `#26262A` | Card/panel borders, dividers |
+| `--text` | `#F4F4F3` | Primary text |
+| `--dim` | `#9C9CA3` | Secondary text, labels |
+| `--accent` | `#F4F4F3` | Active bill tab, selected line, total, PAY button, flash-on-add (solid white block) |
+| `--accent-text` | `#0B0B0C` | Text/icons on accent |
+| `--ok` | `#34D399` | Success states only |
 
-Dark mode only for v1 (light variant exists in the comparison file if needed later).
+### Light (soft grey — not plain white)
+
+| Token | Value | Use |
+|---|---|---|
+| `--bg` | `#ECECEA` | Page background |
+| `--surface` | `#F7F7F5` | Cards, panels, strips |
+| `--border` | `#D8D8D4` | Card/panel borders, dividers |
+| `--text` | `#141415` | Primary text |
+| `--dim` | `#6E6E73` | Secondary text, labels |
+| `--accent` | `#141415` | Same roles as dark (solid black block) |
+| `--accent-text` | `#F4F4F3` | Text/icons on accent |
+| `--ok` | `#059669` | Success states only |
 
 ## Typography
 
@@ -35,3 +50,4 @@ Dark mode only for v1 (light variant exists in the comparison file if needed lat
 ## Decisions log
 
 - 2026-10-15 — Palette chosen: Amber dark, from interactive comparison. (Shaun)
+- 2026-10-15 — Superseded: Black & White mono, dark + light pair. Accent = inversion blocks. (Shaun)
